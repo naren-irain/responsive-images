@@ -1,0 +1,210 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="x-ua-compatible" content="ie=edge" />
+	<title>Responsive images - Experiments</title>
+	<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<link rel="icon" href="assets/img/favicon.png">
+	<link rel="stylesheet" href="assets/css/h5bp.css">
+	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+	<link rel="stylesheet" href="assets/css/syntax.css">
+
+	<script>
+		// Picture element HTML5 shiv
+		document.createElement( "picture" );
+	</script>
+	<script src="assets/js/picturefill.min.js" async></script>
+</head>
+<body>
+	<div id="container">
+		<header class="wrapper">
+			<h1>Responsive images - Test</h1>
+		</header>
+
+		<div class="main">
+
+			<!-- Through CSS -->
+            <section id="css-media-query" class="type-css">
+                <div class="wrapper">
+                    <h3>1. Through CSS <mark>{Media query}</mark> styles</h3>
+<pre class='brush: css'>
+@media only screen and (max-width: 750px) {
+    .cssBanner {
+        background-image: url('../img/car-small.jpg');
+    }
+}
+@media only screen and (min-width: 751px) {
+    .cssBanner {
+        background-image: url('../img/car-large.jpg');
+    }
+}
+</pre>
+                </div>
+                <figure class="cssBanner"></figure>
+            </section>
+
+			<!-- Through Picture tag  -->
+            <section id="picture-tag" class="type-css">
+                <div class="wrapper">
+                    <h3>2. Through <mark>&lt;picture&gt;</mark> tag</h3>
+<pre class='brush: html'>
+<picture>
+	<source media="(max-width: 750px)" srcset="assets/img/car-small.jpg">
+	<source media="(min-width: 751px)" srcset="assets/img/car-large.jpg">
+	<img src="assets/img/car-large.jpg" />
+</picture>
+</pre>
+                </div>
+                <figure class="pictureBanner">
+					<picture>
+						<!--[if IE 9]><video style="display: none;"><![endif]-->
+						<source media="(max-width: 750px)" srcset="assets/img/car-small.jpg">
+						<source media="(min-width: 751px)" srcset="assets/img/car-large.jpg">
+						<!--[if IE 9]></video><![endif]-->
+						<img src="assets/img/car-large.jpg" />
+					</picture>
+                </figure>
+            </section>
+
+			<!-- type attribute and webp -->
+            <section id="type-attribute">
+                <div class="wrapper">
+                    <h3>2A. Webp format and type attribute</h3>
+<pre class='brush: html'>
+<picture>
+	<source srcset="assets/img/clubmed.webp" media="(min-width: 800px)" type="image/webp">
+	<source srcset="assets/img/clubmed-small.webp" media="(max-width: 799px)" type="image/webp">
+	<source srcset="assets/img/clubmed.jpg" media="(min-width: 800px)">
+	<source srcset="assets/img/clubmed-small.jpg" media="(max-width: 799px)">
+	<img src="assets/img/clubmed-small.jpg" alt="Clubmed">
+</picture>
+</pre>
+                <figure class="srcsetBanner">
+					<picture>
+						<source srcset="assets/img/clubmed.webp" media="(min-width: 800px)" type="image/webp">
+						<source srcset="assets/img/clubmed-small.webp" media="(max-width: 799px)" type="image/webp">
+						<source srcset="assets/img/clubmed.jpg" media="(min-width: 800px)">
+						<source srcset="assets/img/clubmed-small.jpg" media="(max-width: 799px)">
+						<img src="assets/img/clubmed-small.jpg" alt="Clubmed">
+					</picture>
+                </figure>
+                </div>
+            </section>
+
+			<!-- Through srcset attribute -->
+            <section id="srcset-attribute" class="type-css">
+                <div class="wrapper">
+                    <h3>3. Through <mark>"srcset"</mark> attribute</h3>
+<pre class='brush: html'>
+<img srcset="car-large.jpg 1920w, car-small.jpg 750w" src="car-large.jpg" />
+</pre>
+                </div>
+                <figure class="srcsetBanner">
+					<img src="assets/img/car-large.jpg"
+						 srcset="assets/img/car-large.jpg 1920w, assets/img/car-small.jpg 750w" alt="car" />
+                </figure>
+            </section>
+
+			<!-- sizes attribute picture tag -->
+            <section id="sizes-attribute">
+                <div class="wrapper">
+                    <h3>3A. Sizes attribute</h3>
+<pre class='brush: html'>
+<img sizes="(min-width:751px) 375px, 100vw" srcset="assets/img/clubmed-portrait.jpg 750w" src="assets/img/clubmed-portrait.jpg" alt="clubmed" />
+</pre>
+                <figure class="srcsetBanner">
+					<img sizes="(min-width:751px) 375px, 100vw" srcset="assets/img/clubmed.jpg 1920w, assets/img/clubmed-portrait.jpg 750w" src="assets/img/clubmed-portrait.jpg" alt="clubmed" />
+                </figure>
+                </div>
+            </section>
+
+			<!-- Through srcset attribite -->
+            <section id="picture-tag" class="type-css">
+                <div class="wrapper">
+                    <h3>4. Through CSS <mark>image-set()</mark></h3>
+<pre class='brush: css'>
+.imageSetIcons {
+    background-image: url('../img/icons-1x.png');
+    background-image: -webkit-image-set(url('../img/icons-1x.png') 1x, url('../img/icons-2x.png') 2x);
+}
+</pre>
+                <figure class="imageSetIcons"></figure>
+                </div>
+            </section>
+
+			<!-- Through SVG tag -->
+            <section id="svg-image" class="type-css">
+                <div class="wrapper">
+                    <h3>5. Through <mark>SVG</mark> image</h3>
+<pre class='brush: html'>
+<img src="assets/img/svg-image.svg" />
+</pre>
+                <figure class="svgImageBlock">
+					<img src="assets/img/svg-image.svg" />
+				</figure>
+                </div>
+            </section>
+
+			<!-- Through Icon fonts -->
+            <section id="svg-image" class="type-css">
+                <div class="wrapper">
+                    <h3>6. Through <mark>Font icons</mark></h3>
+<pre class='brush: html'>
+<span class="fa fa-camera"></span>
+<span class="fa fa-cart-plus"></span>
+<span class="fa fa-calendar"></span>
+</pre>
+<pre class='brush: css'>
+@font-face {
+	font-family:'FontAwesome';
+	src:url('../fonts/fontawesome-webfont.eot?v=4.6.1');
+	src:url('../fonts/fontawesome-webfont.eot?#iefix&v=4.6.1') format('embedded-opentype'),
+		url('../fonts/fontawesome-webfont.woff2?v=4.6.1') format('woff2'),
+		url('../fonts/fontawesome-webfont.woff?v=4.6.1') format('woff'),
+		url('../fonts/fontawesome-webfont.ttf?v=4.6.1') format('truetype'),
+		url('../fonts/fontawesome-webfont.svg?v=4.6.1#fontawesomeregular') format('svg');
+		font-weight:normal;font-style:normal
+}
+.fa:before { font-family:'FontAwesome'; }
+.fa-camera:before{content:"\f030"}
+.fa-cart-plus:before{content:"\217"}
+.fa-calendar:before{content:"\f073"}
+</pre>
+                <div class="faIconsBlk">
+					<h4>
+						<span class="fa fa-camera"></span>
+						<span class="fa fa-cart-plus"></span>
+						<span class="fa fa-calendar"></span>
+					</h4>
+				</figure>
+                </div>
+            </section>
+
+			<div class="wrapper">
+				<h3>Reference</h3>
+				<p><a href="https://www.w3schools.com/tags/tag_picture.asp" target="_blank">https://www.w3schools.com/tags/tag_picture.asp</a> [<b>picture tag</b>]</p>
+				<p><a href="https://www.smashingmagazine.com/2014/05/responsive-images-done-right-guide-picture-srcset/" target="_blank">https://www.smashingmagazine.com/2014/05/responsive-images-done-right-guide-picture-srcset/</a> [<b>srcset</b>]</p>
+				<p><a href="https://cloudfour.com/examples/image-set/" target="_blank">https://cloudfour.com/examples/image-set/</a> [<b>CSS image-set</b>]</p>
+				<p><a href="https://scottjehl.github.io/picturefill/" target="_blank">https://scottjehl.github.io/picturefill/</a> [<b>picturefill</b>]</p>
+				<p><a href="http://fontawesome.io/" target="_blank">http://fontawesome.io/</a> [<b>Fontawesome</b>]</p>
+			</div>
+
+			<footer>
+				<p>Done by Narendran S</p>
+			</footer>
+
+		</div>
+	</div>
+    <link href='assets/js/syntaxhighlighter/shCore.css' rel='stylesheet' type='text/css'>
+    <script src='assets/js/syntaxhighlighter/shCore.js' type='text/javascript'></script>
+    <script src='assets/js/syntaxhighlighter/shAutoloader.js' type='text/javascript'></script>
+    <script src='assets/js/syntaxhighlighter/shBrushXml.js' type='text/javascript'></script>
+    <script src='assets/js/syntaxhighlighter/shBrushJScript.js' type='text/javascript'></script>
+    <script src='assets/js/syntaxhighlighter/shBrushCss.js' type='text/javascript'></script>
+    <script>
+		SyntaxHighlighter.config.bloggerMode = true;
+		SyntaxHighlighter.all();
+    </script>
+</body>
+</html>

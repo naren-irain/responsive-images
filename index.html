@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Responsive images - Presentation by Narendran S</title>
+
+		<meta name="description" content="Presenation about responsive images, displaying images based on device capabilities to prevent wasted bandwidth and optimize display for both screen and print.">
+		<meta name="author" content="Narendran S">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+		
+		<link rel="icon" href="assets/img/favicon.png">
+
+		<link rel="stylesheet" href="assets/css/reveal.css">
+		<link rel="stylesheet" href="assets/css/theme.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="assets/css/zenburn.css">
+
+		<script type="text/javascript" src="assets/js/jquery-1.10.1.min.js"></script>
+
+		<!--  Picture element polyfill -->
+		<script>
+			document.createElement( "picture" );
+		</script>
+		<script src="assets/js/picturefill.min.js" async></script>
+
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+				<section>
+					<h1>Responsive images</h1>
+					<h3>Displaying images based on device capabilities</h3>
+					<p>
+						<small>Presented by <a href="http://krds.facebook.com/narendran.s.krds" target="_blank">Narendran S</a></small>
+					</p>
+				</section>
+				
+				<section>
+					<h1>Discover</h1>
+					<h3><span>&lt;picture&gt; tag</span> - <span>srcset</span> - <span>image-set()</span> <br>- <span>New image formats</span> - <span>Useful Tips</span></h3>
+				</section>
+
+				<!-- Slide 3 -->
+				<section>
+					<h2>Existing methods</h2>
+					<ul>
+						<li>Setting <b>max-width: 100%;</b> for <b>&lt;img&gt;</b> tag</li>
+						<li>Changing <b>background-image</b> in <b>media-queries</b></li>
+						<li>Handling icons in <b>fonts</b></li>
+						<li>Fit the images with <b>background-size</b> and <b>Object-fit</b></li>
+					</ul>
+				</section>
+
+				<!-- Slide 4 -->
+				<section>
+
+					<section>
+						<h1>&lt;picture&gt;</h1>
+					</section>
+
+					<section>
+						<h3>&lt;picture&gt; tag syntax</h3>
+						<div class="editor">
+<pre class='brush: html'><picture>
+	<source srcset="clubmed-small.jpg" media="(max-width: 960px)" sizes="" type="image/jpeg">
+	<source srcset="clubmed-normal.jpg" media="(min-width: 961px)" sizes="" type="image/jpeg">
+	<img src="clubmed-normal.jpg" alt="Clubmed" />
+</picture></pre>
+						</div>
+						<div class="previewBlk">
+							<picture>
+								<source media="(max-width: 960px)" srcset="assets/img/clubmed-small.jpg" sizes="" type="image/jpeg">
+								<source media="(min-width: 961px)" srcset="assets/img/clubmed-normal.jpg">
+								<img src="assets/img/clubmed-normal.jpg" alt="Clubmed" />
+							</picture>
+						</div>
+					</section>
+
+					<section>
+						<h3>display density based</h3>
+						<div class="editor">
+<pre class='brush: html'><picture>
+	<source media="(max-width: 960px)" srcset="icons-2x.png 2x, icons-1x.png">
+	<source media="(min-width: 961px)" srcset="icons-1x.png">
+	<img src="icons-1x.png" alt="Icons" />
+</picture></pre>
+						</div>
+						<div class="previewBlk icons">
+							<picture>
+								<source media="(max-width: 960px)" srcset="assets/img/icons-2x.png 2x, assets/img/icons-1x.png">
+								<source media="(min-width: 961px)" srcset="assets/img/icons-1x.png">
+								<img src="assets/img/icons-1x.png" alt="Icons" />
+							</picture>
+						</div>
+					</section>
+
+					<section>
+						<h3>type attribute and webp format</h3>
+						<div class="editor">
+<pre class='brush: html'><picture>
+	<source srcset="assets/img/clubmed.webp" type="image/webp">
+	<img src="assets/img/clubmed.jpg" alt="Clubmed" />
+</picture></pre>
+						</div>
+						<div class="previewBlk">
+							<picture>
+								<source srcset="assets/img/clubmed.webp" type="image/webp">
+								<img src="assets/img/clubmed.jpg" alt="Clubmed" />
+							</picture>
+							<p>
+								<span>jpg - 391kb</span>
+								<span>webp - 114kb</span>
+							</p>
+						</div>
+					</section>
+
+					<section>
+						<h3>type attribute and animated PNG</h3>
+						<div class="editor">
+<pre class='brush: html'><picture>
+	<source srcset="assets/img/animated.PNG" type="image/apng">
+	<img src="assets/img/animated.gif" alt="Clubmed" />
+</picture></pre>
+						</div>
+						<div class="previewBlk">
+							<picture class="apng">
+								<source srcset="assets/img/animated.PNG" type="image/apng">
+								<img src="assets/img/animated.gif" alt="Clubmed" />
+							</picture>
+							<img src="assets/img/tips/webp.jpg" alt="Clubmed" />
+						</div>
+					</section>
+
+					<section>
+						<h3>Browser support - Picture tag</h3>
+						<div class="previewBlk full">
+							<img src="assets/img/support/picture.jpg" alt="picture" class="full" />
+						</div>
+					</section>
+
+					<section>
+						<h3>Browser support - webp and apng</h3>
+						<div class="previewBlk full">
+							<img src="assets/img/support/webp.jpg" alt="picture" class="full" />
+							<img src="assets/img/support/apng.jpg" alt="picture" class="full" />
+						</div>
+					</section>
+
+				</section>
+
+				<!-- Slide 5 -->
+				<section>
+
+					<section>
+						<h1>&lt;img srcset=' ' &gt;</h1>
+					</section>
+
+					<section>
+						<h3>srcset syntax</h3>
+						<div class="editor">
+<pre class='brush: html'><img src="car-large.jpg"
+	srcset="car-large.jpg 1920w, car-small.jpg 750w" alt="car" /></pre>
+</div>
+						<div class="previewBlk">
+							<figure class="srcsetBanner">
+								<img src="assets/img/car-large.jpg"
+									srcset="assets/img/car-large.jpg 1920w, assets/img/car-small.jpg 750w" alt="car" />
+							</figure>
+						</div>
+					</section>
+
+					<section>
+						<h3>sizes attribute</h3>
+						<div class="editor">
+<pre class='brush: html'><img sizes="(min-width:751px) 400px, 100vw" srcset="clubmed-normal.jpg 1440w, clubmed-thumbnaill.jpg 300w" src="clubmed-small.jpg" alt="clubmed" /></pre>
+						</div>
+						<div class="previewBlk">
+							<figure class="srcsetBanner">
+								<img sizes="(min-width:751px) 400px, 100vw" srcset="assets/img/clubmed-normal.jpg 1440w, assets/img/clubmed-thumbnail.jpg 300w" src="assets/img/clubmed-small.jpg" alt="clubmed" />
+							</figure>
+						</div>
+					</section>
+
+					<section>
+						<h3>sizes attribute - handling src</h3>
+						<div class="editor">
+<pre class='brush: html'><img sizes="(min-width:751px) 300px, 100vw" srcset="clubmed.jpg 600w, clubmed-thumbnail.jpg 300w" src="clubmed.jpg" alt="clubmed" /></pre>
+						</div>
+						<div class="previewBlk">
+							<figure class="srcsetBanner">
+								<img sizes="(min-width:751px) 300px, 100vw" srcset="assets/img/clubmed.jpg 600w, assets/img/clubmed-thumbnail.jpg 300w" src="assets/img/clubmed-normal.jpg" alt="clubmed" />
+							</figure>
+						</div>
+					</section>
+
+					<section>
+						<h3>display density based</h3>
+						<div class="editor">
+<pre class='brush: html'><img srcset="icons-2x.png 2x, icons-1x.png 1x" src="icons-1x.png" /></pre>
+						</div>
+						<div class="previewBlk icons">
+							<picture>
+								<img srcset="assets/img/icons-2x.png 2x, assets/img/icons-1x.png 1x" src="assets/img/icons-1x.png" />
+							</picture>
+						</div>
+					</section>
+
+					<section>
+						<h3>Browser support - img srcset</h3>
+						<div class="previewBlk full">
+							<img src="assets/img/support/srcset.jpg" alt="picture" class="full" />
+						</div>
+					</section>
+
+				</section>
+
+				<!-- Slide 6 -->
+				<section>
+
+					<section>
+						<h1>CSS Options</h1>
+					</section>
+
+					<section>
+						<h3>Media queries</h3>
+						<div class="editor">
+<pre class='brush: css'>@media only screen and (max-width: 750px) {
+    .cssBanner { background-image: url('../img/car-small.jpg'); }
+}
+@media only screen and (min-width: 751px) {
+    .cssBanner { background-image: url('../img/car-large.jpg'); }
+}</pre>
+</div>
+						<div class="previewBlk">
+							<figure class="cssBanner"></figure>
+						</div>
+					</section>
+
+					<section>
+						<h3>css image-set()</h3>
+						<div class="editor">
+<pre class='brush: css'>
+.imageSetIcons {
+    background-image: url('icons-1x.png');
+    background-image: -webkit-image-set(url('icons-1x.png') 1x, url('icons-2x.png') 2x);
+}
+</pre>
+						</div>
+						<div class="previewBlk">
+							<figure class="imageSetIcons"></figure>
+						</div>
+					</section>
+
+					<section>
+						<h3>Browser support - image-set()</h3>
+						<div class="previewBlk full">
+							<img src="assets/img/support/css-image-set.jpg" alt="picture" class="full" />
+						</div>
+					</section>
+
+					<section>
+						<h3>css image() function</h3>
+						<div class="editor">
+<pre class='brush: css'>
+.webpBanner {
+    background-image: url('../img/clubmed.jpg');
+    background-image: url('../img/clubmed.webp');
+    background-image: image('../img/clubmed.webp', '../img/clubmed.jpg');
+}
+</pre>
+						</div>
+						<div class="previewBlk">
+							<figure class="webpBanner"></figure>
+						</div>
+					</section>
+
+				</section>
+
+				<!-- Slide 7 -->
+				<section>
+
+					<section>
+						<h1>Tips and Tricks</h1>
+					</section>
+
+					<section>
+						<h2>Art Direction</h2>
+						<figure>
+							<img src="assets/img/tips/picnic_with_art_direction.jpg" alt="" />
+						</figure>
+					</section>
+
+					<section>
+						<h2>picturefill</h2>
+						<p>A responsive image polyfill for picture, srcset and sizes</p>
+						<div class="editor">
+<pre class='brush: html'>
+<!--  Picture element polyfill -->
+<script>
+	document.createElement( "picture" );
+</script>
+<script src="assets/js/picturefill.min.js" async></script>
+</pre>
+</div>
+						<p>Souces: <a href="assets/js/picturefill.min.js" download>picturefill.min.js</a>, <a href="https://scottjehl.github.io/picturefill/" target="_blank">Documentation</a></p>
+					</section>
+
+					<section>
+						<h2>Wordpress post thumbnails</h2>
+						<p>From wordPress 4.4 you have <b>wp_get_attachment_image_srcset()</b> and <b>wp_get_attachment_image_sizes()</b> to get the dynamic post images.</p>
+						<div class="editor">
+<pre class='brush: php'>
+&lt;?php
+$img_src = wp_get_attachment_image_url( $attachment_id, 'medium' );
+$img_srcset = wp_get_attachment_image_srcset( $attachment_id, 'medium' );
+?&gt;
+<img src="<?php echo esc_url( $img_src ); ?>"
+     srcset="<?php echo esc_attr( $img_srcset ); ?>"
+     sizes="(max-width: 50em) 87vw, 680px" alt="A rad wolf">
+</pre>
+						</div>
+					</section>
+
+					<section>
+						<h2>Sprite percentage formula</h2>
+						<p>Background size percentage calculation in the sprite images</p>
+						<figure>
+							<img src="assets/img/tips/size-formula.jpg" alt="" />
+						</figure>
+						<figure>
+							<img src="assets/img/tips/formula-example.jpg" alt="" />
+						</figure>
+					</section>
+
+					<section>
+						<h2>Image resolution</h2>
+						<ul>
+							<li>1600w for large screens</li>
+							<li>750w for small screens</li>
+							<li>Retina icons for mobile screens</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Image size</h2>
+						<ul>
+							<li>Below 100kb is standard and compress all the images</li>
+							<li>Use sprite images/fonts for icons</li>
+							<li>Use webp if real jpg image is larger than 300kb, <a href="https://webp-converter.com/" target="_blank">Online convertor</a>.</li>
+						</ul>
+					</section>
+
+				</section>
+
+				<section>
+					<h1>Your turn !!</h1>
+				</section>
+
+				<section style="text-align: left;">
+					<div class="previewBlk full">
+						<h1>TASK</h1>
+						<p>
+							<b>Develop 3 articles with a banner and a description. <a href="assets/source.zip" download>Source</a></b> <br>
+							<ol>
+								<li>First article using css media/css image-set</li>
+								<li>Second article using picture tag</li>
+								<li>Third article using srcset attribute</li>
+							</ol>
+						</p>
+					</div>
+				</section>
+
+				<section style="text-align: left;">
+					<h1>THE END</h1>
+					<p>
+						- <a href="https://responsiveimages.org/" target="_blank">RICG: Responsive images</a>
+						- <a href="https://cloudfour.com/examples/image-set/" target="_blank">image-set() test</a> <br>
+						- <a href="https://scottjehl.github.io/picturefill/" target="_blank">Picturefill</a>
+						- <a href="https://make.wordpress.org/core/2015/11/10/responsive-images-in-wordpress-4-4/" target="_blank">Responsive images in wordpress</a>
+						- <a href="https://webp-converter.com/" target="_blank">Online Webp Convertor</a>
+					</p>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="assets/js/head.min.js"></script>
+		<script src="assets/js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+			});
+
+		</script>
+
+		<link href='assets/js/syntaxhighlighter/shCore.css' rel='stylesheet' type='text/css'>
+		<script src='assets/js/syntaxhighlighter/shCore.js' type='text/javascript'></script>
+		<script src='assets/js/syntaxhighlighter/shAutoloader.js' type='text/javascript'></script>
+		<script src='assets/js/syntaxhighlighter/shBrushXml.js' type='text/javascript'></script>
+		<script src='assets/js/syntaxhighlighter/shBrushJScript.js' type='text/javascript'></script>
+		<script src='assets/js/syntaxhighlighter/shBrushCss.js' type='text/javascript'></script>
+		<script src='assets/js/syntaxhighlighter/shBrushPhp.js' type='text/javascript'></script>
+		<script>
+			SyntaxHighlighter.config.bloggerMode = true;
+			SyntaxHighlighter.all();
+		</script>
+
+	</body>
+</html>
