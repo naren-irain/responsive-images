@@ -185,17 +185,21 @@
 					<section>
 						<h1>srcset and sizes</h1>
 						<h3>Displays the best source based on <br/> the given informations and existing sources</h3>
-						<p>Resolution based | Existing sources based</p>
+						<p>Art direction based  |  Device-pixel-ratio based  |  Image format based</p>
 					</section>
 
 					<section>
-						<h2>srcset syntax</h2>
+						<h3>srcset syntax</h3>
 						<div class="editor">
-<pre class='brush: html'><img src="large.jpg" srcset="large.jpg 1920w, medium.jpg 1024w" alt="car" /></pre>
+<pre class='brush: html'><img src="car-large.jpg"
+	srcset="car-large.jpg 1920w, car-small.jpg 750w" alt="car" /></pre>
 </div>
-						<figure>
-							<img src="assets/img/tips/srcset.jpg" alt="" />
-						</figure>
+						<div class="previewBlk">
+							<figure class="srcsetBanner">
+								<img src="assets/img/car-large.jpg"
+									srcset="assets/img/car-large.jpg 1920w, assets/img/car-small.jpg 750w" alt="car" />
+							</figure>
+						</div>
 					</section>
 
 					<section>
