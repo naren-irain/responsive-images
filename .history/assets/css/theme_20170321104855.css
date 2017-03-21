@@ -342,7 +342,7 @@ body {
     background-image: url('../img/slider/bg-discover.jpg');
 }
 .slide-background:nth-child(3) {
-    background-image: url('../img/slider/bg-roadmap.jpg');
+    background-image: url('../img/slider/bg-sea.jpg');
 }
 .slide-background:nth-child(4),
 .slide-background:nth-child(5),
@@ -358,9 +358,6 @@ body {
 }
 .slide-background .slide-background {
     background-image: none;
-}
-.roadMap {
-    color: #fff;
 }
 
 /*********************************************
@@ -403,7 +400,7 @@ body {
     content: '';
     display: block;
     position: absolute;
-    top: 35%;
+    top: 30%;
     bottom: 0;
     left: 0;
     right: 18px;

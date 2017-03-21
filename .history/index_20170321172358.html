@@ -103,7 +103,6 @@
 						<div class="previewBlk resizeBox">
 							<iframe height='400' scrolling='no' title='<picture> tag - example 1' src='https://codepen.io/narenkrds/embed/evVdXm/?height=400&theme-id=dark&default-tab=result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/narenkrds/pen/evVdXm/'><picture> tag - example 1</a> by naren (<a href='http://codepen.io/narenkrds'>@narenkrds</a>) on <a href='http://codepen.io'>CodePen</a>.</iframe>
 							<div class="splitter"></div>
-							<mark>width: <span class="resizeBoxWidth">80%</span></mark>
 						</div>
 					</section>
 
@@ -135,8 +134,8 @@
 						</div>
 						<div class="previewBlk">
 							<picture>
-								<source srcset="assets/img/clubmed/clubmed.webp" type="image/webp">
-								<img src="assets/img/clubmed/clubmed.jpg" alt="Clubmed" />
+								<source srcset="assets/img/clubmed.webp" type="image/webp">
+								<img src="assets/img/clubmed.jpg" alt="Clubmed" />
 							</picture>
 							<p>
 								<span>jpg - 391kb</span>
@@ -183,7 +182,7 @@
 				<section>
 
 					<section>
-						<h1>srcset and sizes</h1>
+						<h1>&lt;img srcset=' ' &gt;</h1>
 					</section>
 
 					<section>
@@ -346,11 +345,11 @@ $img_srcset = wp_get_attachment_image_srcset( $attachment_id, 'medium' );
 					</section>
 
 					<section>
-						<h2>Standard instructions</h2>
+						<h2>Remind our standards</h2>
 						<ul>
-							<li>Maximum 1600w for large screens and 750w for small screens</li>
+							<li>1600w for large screens and 750w for small screens</li>
 							<li>Retina icons for mobile screens</li>
-							<li>File size must be below to 100kb and compress all the images</li>
+							<li>File size must be below to 150kb and compress all the images</li>
 							<li>Use sprite images/fonts for icons</li>
 						</ul>
 					</section>
@@ -431,18 +430,9 @@ $img_srcset = wp_get_attachment_image_srcset( $attachment_id, 'medium' );
 		
 		<script src='assets/js/jquery-resizable/jquery-resizable.js' type='text/javascript'></script>
 		<script>
-			$('.resizeBoxWidth').each(function(){
-				$(this).html( $(this).parents('.resizeBox').width() + 'px' );
-			});
-
 			$(".resizeBox").resizable({
 				handleSelector: ".splitter",
-				resizeHeight: false,
-				onDrag: function(event) {
-					$('.resizeBoxWidth').each(function(){
-						$(this).html( $(this).parents('.resizeBox').width() + 'px' );
-					});
-				}
+				resizeHeight: false
 			});
 		</script>
 

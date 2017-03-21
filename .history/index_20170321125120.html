@@ -58,12 +58,12 @@
 				</section>
 
 				<!-- Slide 3 -->
-				<section class="roadMap">
-					<h2>Roadmap</h2>
+				<section>
+					<h2>It starts from</h2>
 					<ul>
 						<li>Setting <b>max-width: 100%;</b> for <b>&lt;img&gt;</b> tag</li>
 						<li>Changing <b>background-image</b> in <b>media-queries</b></li>
-						<li>Fit the images with <b>background-size</b></li>
+						<li>Fit the images with <b>background-size</b> and <b>Object-fit</b></li>
 						<li>Handling icons in <b>fonts</b></li>
 					</ul>
 				</section>
@@ -73,7 +73,7 @@
 
 					<section>
 						<h1>&lt;picture&gt;</h1>
-						<h3>Displays the first source which <br/> matchs the given conditions</h3>
+						<h3>In the different sources given, the first source which <br/> fits the preferences will be displayed</h3>
 						<p>Art direction based  |  Device-pixel-ratio based  |  Image format based</p>
 					</section>
 
@@ -88,14 +88,11 @@
 						<h3>&lt;picture&gt; tag syntax</h3>
 						<div class="editor">
 <code><pre class='brush: html'><picture>
-	<source srcset="mobile.jpg" media="(max-width: 750px)" sizes="" type="image/jpeg">
-	<source srcset="desktop.jpg" media="(min-width: 751px)" sizes="" type="image/jpeg">
-	<img src="desktop.jpg" alt="Image" />
+	<source srcset="clubmed-small.jpg" media="(max-width: 960px)" sizes="" type="image/jpeg">
+	<source srcset="clubmed-normal.jpg" media="(min-width: 961px)" sizes="" type="image/jpeg">
+	<img src="clubmed-normal.jpg" alt="Clubmed" />
 </picture></pre></code>
 						</div>
-						<figure>
-							<img src="assets/img/tips/picture-tag.jpg" alt="" />
-						</figure>
 					</section>
 
 					<section>
@@ -103,7 +100,6 @@
 						<div class="previewBlk resizeBox">
 							<iframe height='400' scrolling='no' title='<picture> tag - example 1' src='https://codepen.io/narenkrds/embed/evVdXm/?height=400&theme-id=dark&default-tab=result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/narenkrds/pen/evVdXm/'><picture> tag - example 1</a> by naren (<a href='http://codepen.io/narenkrds'>@narenkrds</a>) on <a href='http://codepen.io'>CodePen</a>.</iframe>
 							<div class="splitter"></div>
-							<mark>width: <span class="resizeBoxWidth">80%</span></mark>
 						</div>
 					</section>
 
@@ -126,7 +122,7 @@
 					</section>
 
 					<section>
-						<h3>Image format based - webp</h3>
+						<h3>type attribute and webp format</h3>
 						<div class="editor">
 <pre class='brush: html'><picture>
 	<source srcset="assets/img/clubmed.webp" type="image/webp">
@@ -135,8 +131,8 @@
 						</div>
 						<div class="previewBlk">
 							<picture>
-								<source srcset="assets/img/clubmed/clubmed.webp" type="image/webp">
-								<img src="assets/img/clubmed/clubmed.jpg" alt="Clubmed" />
+								<source srcset="assets/img/clubmed.webp" type="image/webp">
+								<img src="assets/img/clubmed.jpg" alt="Clubmed" />
 							</picture>
 							<p>
 								<span>jpg - 391kb</span>
@@ -146,7 +142,7 @@
 					</section>
 
 					<section>
-						<h3>Image format based - webp</h3>
+						<h3>type attribute and animated PNG</h3>
 						<div class="editor">
 <pre class='brush: html'><picture>
 	<source srcset="assets/img/animated.PNG" type="image/apng">
@@ -183,7 +179,7 @@
 				<section>
 
 					<section>
-						<h1>srcset and sizes</h1>
+						<h1>&lt;img srcset=' ' &gt;</h1>
 					</section>
 
 					<section>
@@ -311,7 +307,7 @@
 				<section>
 
 					<section>
-						<h1>Useful Tips</h1>
+						<h1>Tips and Tricks</h1>
 					</section>
 
 					<section>
@@ -346,18 +342,30 @@ $img_srcset = wp_get_attachment_image_srcset( $attachment_id, 'medium' );
 					</section>
 
 					<section>
-						<h2>Standard instructions</h2>
+						<h2>Sprite percentage formula</h2>
+						<p>Background size percentage calculation in the sprite images</p>
+						<figure>
+							<img src="assets/img/tips/size-formula.jpg" alt="" />
+						</figure>
+						<figure>
+							<img src="assets/img/tips/formula-example.jpg" alt="" />
+						</figure>
+					</section>
+
+					<section>
+						<h2>Image resolution</h2>
 						<ul>
-							<li>Maximum 1600w for large screens and 750w for small screens</li>
+							<li>1600w for large screens</li>
+							<li>750w for small screens</li>
 							<li>Retina icons for mobile screens</li>
-							<li>File size must be below to 100kb and compress all the images</li>
-							<li>Use sprite images/fonts for icons</li>
 						</ul>
 					</section>
 
 					<section>
-						<h2>Finally</h2>
+						<h2>Image size</h2>
 						<ul>
+							<li>Below 100kb is standard and compress all the images</li>
+							<li>Use sprite images/fonts for icons</li>
 							<li>Use webp if real jpg image is larger than 300kb, <a href="https://webp-converter.com/" target="_blank">Online convertor</a>.</li>
 						</ul>
 					</section>
@@ -431,18 +439,9 @@ $img_srcset = wp_get_attachment_image_srcset( $attachment_id, 'medium' );
 		
 		<script src='assets/js/jquery-resizable/jquery-resizable.js' type='text/javascript'></script>
 		<script>
-			$('.resizeBoxWidth').each(function(){
-				$(this).html( $(this).parents('.resizeBox').width() + 'px' );
-			});
-
 			$(".resizeBox").resizable({
 				handleSelector: ".splitter",
-				resizeHeight: false,
-				onDrag: function(event) {
-					$('.resizeBoxWidth').each(function(){
-						$(this).html( $(this).parents('.resizeBox').width() + 'px' );
-					});
-				}
+				resizeHeight: false
 			});
 		</script>
 
