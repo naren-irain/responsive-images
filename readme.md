@@ -8,11 +8,12 @@ Presenation about responsive images, displaying images based on device capabilit
 * srcset ans sizes attribute
 * CSS image-set() option
 * New image formats .webp and .apng
+* Use srcset in wordpress
 * Tips and tricks in responsive images
 
 ## Reference
 - [RICG: Responsive images](https://responsiveimages.org/)
-- [Browser test: css image-set()](https://cloudfour.com/examples/image-set/)
-- [Picturefill: polyfill for old browsers](https://cloudfour.com/examples/image-set/)
 - [Responsive images in wordpress](https://make.wordpress.org/core/2015/11/10/responsive-images-in-wordpress-4-4)
-- [Online Webp Converto](https://webp-converter.com/)
+- [Picturefill: polyfill for old browsers](https://cloudfour.com/examples/image-set/)
+- [Browser test: css image-set()](https://cloudfour.com/examples/image-set/)
+- [Online Webp Convertor](https://webp-converter.com/)
