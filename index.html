@@ -61,10 +61,10 @@
 				<section class="roadMap">
 					<h2>Roadmap</h2>
 					<ul>
-						<li>Setting <b>max-width: 100%;</b> for <b>&lt;img&gt;</b> tag</li>
-						<li>Changing <b>background-image</b> in <b>media-queries</b></li>
-						<li>Fit the images with <b>background-size</b></li>
-						<li>Handling icons in <b>fonts</b></li>
+						<li class="fragment">Setting <b>max-width: 100%;</b> for <b>&lt;img&gt;</b> tag</li>
+						<li class="fragment">Changing <b>background-image</b> in <b>media-queries</b></li>
+						<li class="fragment">Fit the images with <b>background-size</b></li>
+						<li class="fragment">Handling icons in <b>fonts</b></li>
 					</ul>
 				</section>
 
@@ -100,28 +100,10 @@
 
 					<section>
 						<h3>&lt;picture&gt; tag example</h3>
-						<div class="previewBlk resizeBox">
+						<div id="picture_codepen" class="previewBlk resizeBox">
 							<iframe height='400' scrolling='no' title='<picture> tag - example 1' src='https://codepen.io/narenkrds/embed/evVdXm/?height=400&theme-id=dark&default-tab=result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/narenkrds/pen/evVdXm/'><picture> tag - example 1</a> by naren (<a href='http://codepen.io/narenkrds'>@narenkrds</a>) on <a href='http://codepen.io'>CodePen</a>.</iframe>
 							<div class="splitter"></div>
 							<mark>width: <span class="resizeBoxWidth">80%</span></mark>
-						</div>
-					</section>
-
-					<section>
-						<h3>Device-pixel-ratio based</h3>
-						<div class="editor">
-<pre class='brush: html'><picture>
-	<source media="(max-width: 960px)" srcset="icons-2x.png 2x, icons-1x.png">
-	<source media="(min-width: 961px)" srcset="icons-1x.png">
-	<img src="icons-1x.png" alt="Icons" />
-</picture></pre>
-						</div>
-						<div class="previewBlk icons">
-							<picture>
-								<source media="(max-width: 960px)" srcset="assets/img/icons-2x.png 2x, assets/img/icons-1x.png">
-								<source media="(min-width: 961px)" srcset="assets/img/icons-1x.png">
-								<img src="assets/img/icons-1x.png" alt="Icons" />
-							</picture>
 						</div>
 					</section>
 
@@ -184,48 +166,37 @@
 
 					<section>
 						<h1>srcset and sizes</h1>
-						<h3>Displays the best source based on <br/> the given informations and existing sources</h3>
-						<p>Resolution based | Existing sources based</p>
+						<h3>Displays the best source based on <br/> the resolution and existing sources</h3>
+						<p>Resolution based | Existing sources based | Device-pixel-ratio based</p>
 					</section>
 
 					<section>
 						<h2>srcset syntax</h2>
+						<p>Browser won't load a new low-resolution image, if high resolution image is already exists</p>
 						<div class="editor">
 <pre class='brush: html'><img srcset="large.jpg 1600w, medium.jpg 1024w" src="large.jpg" alt="car" /></pre>
 </div>
-						<figure id="img_srcset_grp">
+						<figure class="tipsImgGrp">
 							<img src="assets/img/tips/srcset-1.jpg" alt="srcset onload" id="img_srcset_1" />
-							<img src="assets/img/tips/srcset-2.jpg" alt="srcset resize from large screen" id="img_srcset_2" />
-							<img src="assets/img/tips/srcset-3.jpg" alt="srcset resize from small screen" id="img_srcset_3" />
+							<img src="assets/img/tips/srcset-2.jpg" alt="srcset resize from large screen" class="fragment fade-in" data-fragment-index="1" />
+							<img src="assets/img/tips/srcset-3.jpg" alt="srcset resize from small screen" id="img_srcset_3" class="fragment fade-in" data-fragment-index="2" />
 						</figure>
+						<p><small>*srcset accepts two designators 'w' and 'x'</small></p>
 					</section>
 
 					<section>
-						<h3>sizes attribute</h3>
-						<div class="editor">
-<pre class='brush: html'><img sizes="(min-width:751px) 400px, 100vw" srcset="clubmed-normal.jpg 1440w, clubmed-thumbnaill.jpg 300w" src="clubmed-small.jpg" alt="clubmed" /></pre>
-						</div>
-						<div class="previewBlk">
-							<figure class="srcsetBanner">
-								<img sizes="(min-width:751px) 400px, 100vw" srcset="assets/img/clubmed-normal.jpg 1440w, assets/img/clubmed-thumbnail.jpg 300w" src="assets/img/clubmed-small.jpg" alt="clubmed" />
-							</figure>
-						</div>
-					</section>
-
-					<section>
-						<h3>sizes attribute - handling src</h3>
-						<div class="editor">
-<pre class='brush: html'><img sizes="(min-width:751px) 300px, 100vw" srcset="clubmed.jpg 600w, clubmed-thumbnail.jpg 300w" src="clubmed.jpg" alt="clubmed" /></pre>
-						</div>
-						<div class="previewBlk">
-							<figure class="srcsetBanner">
-								<img sizes="(min-width:751px) 300px, 100vw" srcset="assets/img/clubmed.jpg 600w, assets/img/clubmed-thumbnail.jpg 300w" src="assets/img/clubmed-normal.jpg" alt="clubmed" />
-							</figure>
+						<h2>srcset example</h2>
+						<div id="srcset_codepen" class="previewBlk resizeBox">
+							<p data-height="400" data-theme-id="dark" data-slug-hash="aJYNxL" data-default-tab="result" data-user="narenkrds" data-embed-version="2" data-pen-title="srcset-example" class="codepen">See the Pen <a href="http://codepen.io/narenkrds/pen/aJYNxL/">srcset-example</a> by naren (<a href="http://codepen.io/narenkrds">@narenkrds</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+							<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+							<div class="splitter"></div>
+							<mark>width: <span class="resizeBoxWidth">80%</span></mark>
 						</div>
 					</section>
 
 					<section>
-						<h3>display density based</h3>
+						<h3>Target device-pixel-ratio</h3>
+						<p>'x' designator stands for device-pixel-ratio</p>
 						<div class="editor">
 <pre class='brush: html'><img srcset="icons-2x.png 2x, icons-1x.png 1x" src="icons-1x.png" /></pre>
 						</div>
@@ -237,7 +208,40 @@
 					</section>
 
 					<section>
-						<h3>Browser support - img srcset</h3>
+						<h3>sizes attribute</h3>
+						<p>Loads the proper image depends on the image occupied area only</p>
+						<div class="editor">
+<pre class='brush: html'><img sizes="(min-width: 1000px) 500px, 100vw" srcset="car-large.jpg 1920w, car-small.jpg 750w" src="car-small.jpg" alt="car" /></pre>
+						</div>
+						<div id="sizes_codepen" class="previewBlk resizeBox">
+							<p data-height="320" data-theme-id="dark" data-slug-hash="peVYRj" data-default-tab="result" data-user="narenkrds" data-embed-version="2" data-pen-title="sizes-attribute" class="codepen">See the Pen <a href="http://codepen.io/narenkrds/pen/peVYRj/">sizes-attribute</a> by naren (<a href="http://codepen.io/narenkrds">@narenkrds</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+							<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+							<div class="splitter"></div>
+							<mark>width: <span class="resizeBoxWidth">80%</span></mark>
+						</div>
+						<p><small>The sizes attribute only makes sense when used with the w descriptor; it’s not used in combination with the x descriptor.</small></p>
+					</section>
+
+					<section>
+						<h3>Using srcset in &lt;picture&gt; tag</h3>
+						<div class="editor">
+<pre class='brush: html'><picture>
+	<source media="(max-width: 960px)" srcset="icons-2x.png 2x, icons-1x.png 1x">
+	<source media="(min-width: 961px)" srcset="icons-3x.png 2x, icons-1x.png 1x">
+	<img src="icons-1x.png" alt="Icons" />
+</picture></pre>
+						</div>
+						<div class="previewBlk icons">
+							<picture>
+								<source media="(max-width: 960px)" srcset="assets/img/icons-2x.png 2x, assets/img/icons-1x.png 1x">
+								<source media="(min-width: 961px)" srcset="assets/img/icons-3x.png 2x, assets/img/icons-1x.png 1x">
+								<img src="assets/img/icons-1x.png" alt="Icons" />
+							</picture>
+						</div>
+					</section>
+
+					<section>
+						<h3>Browser support - srcset and sizes</h3>
 						<div class="previewBlk full">
 							<img src="assets/img/support/srcset.jpg" alt="picture" class="full" />
 						</div>
@@ -249,7 +253,7 @@
 				<section>
 
 					<section>
-						<h1>CSS Options</h1>
+						<h1>CSS Methods</h1>
 					</section>
 
 					<section>
@@ -262,22 +266,28 @@
     .cssBanner { background-image: url('../img/car-large.jpg'); }
 }</pre>
 </div>
-						<div class="previewBlk">
-							<figure class="cssBanner"></figure>
+						<div id="media_codepen" class="previewBlk resizeBox">
+							<p data-height="320" data-theme-id="dark" data-slug-hash="zZjQvg" data-default-tab="result" data-user="narenkrds" data-embed-version="2" data-pen-title="images in media-queries" class="codepen">See the Pen <a href="http://codepen.io/narenkrds/pen/zZjQvg/">images in media-queries</a> by naren (<a href="http://codepen.io/narenkrds">@narenkrds</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+							<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+							<div class="splitter"></div>
+							<mark>width: <span class="resizeBoxWidth">80%</span></mark>
 						</div>
 					</section>
 
 					<section>
 						<h3>css image-set()</h3>
+						<p>It is a promising method to use for retina sprite images.</p>
 						<div class="editor">
 <pre class='brush: css'>
 .imageSetIcons {
     background-image: url('icons-1x.png');
+    background-image: -o-image-set(url('icons-1x.png') 1x, url('icons-2x.png') 2x);
+    background-image: -moz-image-set(url('icons-1x.png') 1x, url('icons-2x.png') 2x);
     background-image: -webkit-image-set(url('icons-1x.png') 1x, url('icons-2x.png') 2x);
 }
 </pre>
 						</div>
-						<div class="previewBlk">
+						<div class="previewBlk icons">
 							<figure class="imageSetIcons"></figure>
 						</div>
 					</section>
@@ -286,22 +296,6 @@
 						<h3>Browser support - image-set()</h3>
 						<div class="previewBlk full">
 							<img src="assets/img/support/css-image-set.jpg" alt="picture" class="full" />
-						</div>
-					</section>
-
-					<section>
-						<h3>css image() function</h3>
-						<div class="editor">
-<pre class='brush: css'>
-.webpBanner {
-    background-image: url('../img/clubmed.jpg');
-    background-image: url('../img/clubmed.webp');
-    background-image: image('../img/clubmed.webp', '../img/clubmed.jpg');
-}
-</pre>
-						</div>
-						<div class="previewBlk">
-							<figure class="webpBanner"></figure>
 						</div>
 					</section>
 
@@ -335,12 +329,14 @@
 						<div class="editor">
 <pre class='brush: php'>
 &lt;?php
-$img_src = wp_get_attachment_image_url( $attachment_id, 'medium' );
-$img_srcset = wp_get_attachment_image_srcset( $attachment_id, 'medium' );
+	$attachment_id = get_post_thumbnail_id( $post_id );
+	$img_src = wp_get_attachment_image_url( $attachment_id, 'large' );
+	$img_srcset = wp_get_attachment_image_srcset( $attachment_id, 'medium' );
+	$img_sizes = wp_get_attachment_image_sizes( $attachment_id, 'large' );
 ?&gt;
 <img src="<?php echo esc_url( $img_src ); ?>"
      srcset="<?php echo esc_attr( $img_srcset ); ?>"
-     sizes="(max-width: 50em) 87vw, 680px" alt="A rad wolf">
+     sizes="<?php echo esc_attr( $img_sizes ); ?>" alt="A rad wolf" />
 </pre>
 						</div>
 					</section>
@@ -348,17 +344,21 @@ $img_srcset = wp_get_attachment_image_srcset( $attachment_id, 'medium' );
 					<section>
 						<h2>Standard instructions</h2>
 						<ul>
-							<li>Maximum 1600w for large screens and 750w for small screens</li>
-							<li>Retina icons for mobile screens</li>
-							<li>File size must be below to 100kb and compress all the images</li>
-							<li>Use sprite images/fonts for icons</li>
+							<li class="fragment">Maximum 1600w for large screens and 750w for small screens</li>
+							<li class="fragment">Retina icons for mobile screens</li>
+							<li class="fragment">File size must be below to 100kb and compress all the images</li>
+							<li class="fragment">Use sprite images/fonts for icons</li>
 						</ul>
 					</section>
 
 					<section>
-						<h2>Finally</h2>
+						<h2>So...</h2>
 						<ul>
-							<li>Use webp if real jpg image is larger than 300kb, <a href="https://webp-converter.com/" target="_blank">Online convertor</a>.</li>
+							<li class="fragment">&lt;picture&gt; is used for art direction and different image types</li>
+							<li class="fragment">srcset is for best source based on cache and resolution</li>
+							<li class="fragment">sizes is for getting the image based on its own resolution than viewport</li>
+							<li class="fragment">image-set() is for retina sprite images</li>
+							<li class="fragment">webp for the image, which is larger than 300kb, <a href="https://webp-converter.com/" target="_blank">Online convertor</a>.</li>
 						</ul>
 					</section>
 
@@ -372,23 +372,24 @@ $img_srcset = wp_get_attachment_image_srcset( $attachment_id, 'medium' );
 					<div class="previewBlk full">
 						<h1>TASK</h1>
 						<p>
-							<b>Develop 3 articles with a banner and a description. <a href="assets/source.zip" download>Source</a></b> <br>
+							<b>Develop 3 articles with a banner and a description. <a href="assets/src.zip" download>Source</a></b> <br>
 							<ol>
 								<li>First article using css media/css image-set</li>
 								<li>Second article using picture tag</li>
-								<li>Third article using srcset attribute</li>
+								<li>Third article using srcset and sizes attribute</li>
 							</ol>
 						</p>
 					</div>
 				</section>
 
 				<section style="text-align: left;">
-					<h1>THE END</h1>
+					<h1>THANK YOU</h1>
 					<p>
+						Useful Links: <br>
 						- <a href="https://responsiveimages.org/" target="_blank">RICG: Responsive images</a>
-						- <a href="https://cloudfour.com/examples/image-set/" target="_blank">image-set() test</a> <br>
+						- <a href="https://make.wordpress.org/core/2015/11/10/responsive-images-in-wordpress-4-4/" target="_blank">Responsive images in wordpress</a> <br>
+						- <a href="https://cloudfour.com/examples/image-set/" target="_blank">image-set() test</a>
 						- <a href="https://scottjehl.github.io/picturefill/" target="_blank">Picturefill</a>
-						- <a href="https://make.wordpress.org/core/2015/11/10/responsive-images-in-wordpress-4-4/" target="_blank">Responsive images in wordpress</a>
 						- <a href="https://webp-converter.com/" target="_blank">Online Webp Convertor</a>
 					</p>
 				</section>
@@ -432,13 +433,11 @@ $img_srcset = wp_get_attachment_image_srcset( $attachment_id, 'medium' );
 		<script src='assets/js/jquery-resizable/jquery-resizable.js' type='text/javascript'></script>
 		<script>
 
-			$(".resizeBox").resizable({
+			$("#picture_codepen, #srcset_codepen, #sizes_codepen, #media_codepen").resizable({
 				handleSelector: ".splitter",
 				resizeHeight: false,
 				onDrag: function(event) {
-					$('.resizeBoxWidth').each(function(){
-						$(this).html( $(this).parents('.resizeBox').width() + 'px' );
-					});
+					$(event.toElement).find('.resizeBoxWidth').html( $(event.toElement).width() + 'px' );
 				}
 			});
 

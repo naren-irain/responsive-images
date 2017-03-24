@@ -50,19 +50,19 @@
                     <h3>2. Through <mark>&lt;picture&gt;</mark> tag</h3>
 <pre class='brush: html'>
 <picture>
-	<source media="(max-width: 750px)" srcset="assets/img/car-small.jpg">
-	<source media="(min-width: 751px)" srcset="assets/img/car-large.jpg">
-	<img src="assets/img/car-large.jpg" />
+	<source srcset="portrait.jpg" media="(max-width: 750px)" sizes="" type="image/jpeg">
+	<source srcset="landscape.jpg" media="(min-width: 751px)" sizes="" type="image/jpeg">
+	<img src="landscape.jpg" alt="Image" />
 </picture>
 </pre>
                 </div>
                 <figure class="pictureBanner">
 					<picture>
 						<!--[if IE 9]><video style="display: none;"><![endif]-->
-						<source media="(max-width: 750px)" srcset="assets/img/car-small.jpg">
-						<source media="(min-width: 751px)" srcset="assets/img/car-large.jpg">
+						<source srcset="assets/img/clubmed/portrait.jpg" media="(max-width: 750px)" sizes="" type="image/jpeg">
+						<source srcset="assets/img/clubmed/landscape.jpg" media="(min-width: 751px)" sizes="" type="image/jpeg">
 						<!--[if IE 9]></video><![endif]-->
-						<img src="assets/img/car-large.jpg" />
+						<img src="assets/img/clubmed/landscape.jpg" alt="Image" />
 					</picture>
                 </figure>
             </section>
@@ -73,20 +73,33 @@
                     <h3>2A. Webp format and type attribute</h3>
 <pre class='brush: html'>
 <picture>
-	<source srcset="assets/img/clubmed.webp" media="(min-width: 800px)" type="image/webp">
-	<source srcset="assets/img/clubmed-small.webp" media="(max-width: 799px)" type="image/webp">
-	<source srcset="assets/img/clubmed.jpg" media="(min-width: 800px)">
-	<source srcset="assets/img/clubmed-small.jpg" media="(max-width: 799px)">
-	<img src="assets/img/clubmed-small.jpg" alt="Clubmed">
+	<source srcset="assets/img/clubmed/clubmed.webp" type="image/webp">
+	<img src="assets/img/clubmed/clubmed.jpg" alt="Clubmed" />
 </picture>
 </pre>
                 <figure class="srcsetBanner">
 					<picture>
-						<source srcset="assets/img/clubmed.webp" media="(min-width: 800px)" type="image/webp">
-						<source srcset="assets/img/clubmed-small.webp" media="(max-width: 799px)" type="image/webp">
-						<source srcset="assets/img/clubmed.jpg" media="(min-width: 800px)">
-						<source srcset="assets/img/clubmed-small.jpg" media="(max-width: 799px)">
-						<img src="assets/img/clubmed-small.jpg" alt="Clubmed">
+						<source srcset="assets/img/clubmed/clubmed.webp" type="image/webp">
+						<img src="assets/img/clubmed/clubmed.jpg" alt="Clubmed" />
+					</picture>
+                </figure>
+                </div>
+            </section>
+
+			<!-- type attribute and webp -->
+            <section id="type-attribute">
+                <div class="wrapper">
+                    <h3>2B. APNG format</h3>
+<pre class='brush: html'>
+<picture class="apng">
+	<source srcset="assets/img/animated.PNG" type="image/apng">
+	<img src="assets/img/animated.gif" alt="Clubmed" />
+</picture>
+</pre>
+                <figure class="srcsetBanner">
+					<picture class="apng">
+						<source srcset="assets/img/animated.PNG" type="image/apng">
+						<img src="assets/img/animated.gif" alt="Clubmed" />
 					</picture>
                 </figure>
                 </div>
@@ -97,13 +110,12 @@
                 <div class="wrapper">
                     <h3>3. Through <mark>"srcset"</mark> attribute</h3>
 <pre class='brush: html'>
-<img srcset="car-large.jpg 1920w, car-small.jpg 750w" src="car-large.jpg" />
+<img srcset="assets/img/medium.jpg 1024w, assets/img/small.jpg 540w" src="assets/img/medium.jpg" alt="car" />
 </pre>
-                </div>
                 <figure class="srcsetBanner">
-					<img src="assets/img/car-large.jpg"
-						 srcset="assets/img/car-large.jpg 1920w, assets/img/car-small.jpg 750w" alt="car" />
+					<img srcset="assets/img/clubmed/medium.jpg 1024w, assets/img/clubmed/small.jpg 540w" src="assets/img/clubmed/medium.jpg" alt="car" />
                 </figure>
+                </div>
             </section>
 
 			<!-- sizes attribute picture tag -->
@@ -111,10 +123,10 @@
                 <div class="wrapper">
                     <h3>3A. Sizes attribute</h3>
 <pre class='brush: html'>
-<img sizes="(min-width:751px) 375px, 100vw" srcset="assets/img/clubmed-portrait.jpg 750w" src="assets/img/clubmed-portrait.jpg" alt="clubmed" />
+<img sizes="(min-width: 1000px) 300px, 100vw" srcset="assets/img/clubmed/thumbnail.jpg 300w, assets/img/clubmed/large.jpg 1600w" src="assets/img/clubmed/thumbnail.jpg" alt="car" />
 </pre>
                 <figure class="srcsetBanner">
-					<img sizes="(min-width:751px) 375px, 100vw" srcset="assets/img/clubmed.jpg 1920w, assets/img/clubmed-portrait.jpg 750w" src="assets/img/clubmed-portrait.jpg" alt="clubmed" />
+					<img sizes="(min-width: 1000px) 300px, 100vw" srcset="assets/img/clubmed/thumbnail.jpg 300w, assets/img/clubmed/large.jpg 1600w" src="assets/img/clubmed/thumbnail.jpg" alt="car" />
                 </figure>
                 </div>
             </section>
