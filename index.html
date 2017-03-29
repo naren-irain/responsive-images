@@ -434,7 +434,29 @@
 		<script src='assets/js/jquery-resizable/jquery-resizable.js' type='text/javascript'></script>
 		<script>
 
-			$("#picture_codepen, #srcset_codepen, #sizes_codepen, #media_codepen").resizable({
+			$("#picture_codepen").resizable({
+				handleSelector: ".splitter",
+				resizeHeight: false,
+				onDrag: function(event) {
+					$(event.toElement).find('.resizeBoxWidth').html( $(event.toElement).width() + 'px' );
+				}
+			});
+			
+			$("#srcset_codepen").resizable({
+				handleSelector: ".splitter",
+				resizeHeight: false,
+				onDrag: function(event) {
+					$(event.toElement).find('.resizeBoxWidth').html( $(event.toElement).width() + 'px' );
+				}
+			});
+			$("#sizes_codepen").resizable({
+				handleSelector: ".splitter",
+				resizeHeight: false,
+				onDrag: function(event) {
+					$(event.toElement).find('.resizeBoxWidth').html( $(event.toElement).width() + 'px' );
+				}
+			});
+			$("#media_codepen").resizable({
 				handleSelector: ".splitter",
 				resizeHeight: false,
 				onDrag: function(event) {
