@@ -167,13 +167,13 @@
 
 					<section>
 						<h1>srcset and sizes</h1>
-						<h3>Displays the best source based on <br/> the resolution and existing sources</h3>
-						<p>Resolution based | Existing sources based | Device-pixel-ratio based</p>
+						<h3>Displays the best source based on <br/> the cache and the resolution</h3>
+						<p>Cache based | Resolution based | Device-pixel-ratio based</p>
 					</section>
 
 					<section>
 						<h2>srcset syntax</h2>
-						<p>Browser won't load a new low-resolution image, if high resolution image is already exists</p>
+						<p>Browser won't load a new low-resolution image, if high resolution image is already in cache</p>
 						<div class="editor">
 <pre class='brush: html'><img srcset="large.jpg 1600w, medium.jpg 1024w" src="large.jpg" alt="car" /></pre>
 </div>
@@ -356,10 +356,10 @@
 						<h2>So...</h2>
 						<ul>
 							<li class="fragment">&lt;picture&gt; is used for art direction and different image types</li>
-							<li class="fragment">srcset is for best source based on cache and resolution</li>
-							<li class="fragment">sizes is for getting the image based on its own resolution than viewport</li>
+							<li class="fragment">srcset to get the best source based on cache and resolution</li>
+							<li class="fragment">sizes to get the image, based on its own resolution than viewport</li>
 							<li class="fragment">image-set() is for retina sprite images</li>
-							<li class="fragment">webp for the image, which is larger than 300kb, <a href="https://webp-converter.com/" target="_blank">Online convertor</a>.</li>
+							<li class="fragment">webp for the larger file size image (more than 300kb), <a href="https://webp-converter.com/" target="_blank">Online convertor</a>.</li>
 						</ul>
 					</section>
 
