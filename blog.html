@@ -31,7 +31,17 @@
 
 <hr>
 
-<h2>&lt;picture&gt;</h2>
+<p>picture&gt;</p>
+<p>
+    - The picture tag is very similar in the concept to the audio and video elements. But in picture we need both sources and img tag.
+    - First there will be set of sources with some conditions to display.
+    - srcset attrubute to give the source file path
+    - media attribute for media query conditions
+    - type attribute for image type declaration
+    - A standard img tag is the last required element. It functions as a proxy for the <var>&lt;source&gt;<var> elements to display their content; it also acts as a fallback for browsers that don't understand picture and don't run the polyfill described below.
+</p>
+<p>
+    - First it will check the first source, if the condition is true then it won't consider below sources
+    - Use it for art direction
+</p>
 
-<p>The <var>&lt;picture&gt;</var> element is very similar in concept to the <var>&lt;audio&gt;</var> and <var>&lt;video&gt;</var> elements: it is a tag that surrounds alternative media sources.</p>
-<p>A standard <var>&lt;img&gt;</var> tag is the last required element. It functions as a proxy for the <var>&lt;source&gt;<var> elements to display their content; it also acts as a fallback for browsers that don't understand <var>&lt;picture&gt;</var> and don't run the polyfill described below.</p>
